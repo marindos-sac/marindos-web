@@ -135,13 +135,31 @@ footer a:hover{color:var(--blanco)}
   h1{font-size:2rem !important}
   .stat{padding:0 1rem 0 0}
 }
+
+/* FORMULARIO */
+.form-section{background:linear-gradient(135deg,#0F0D0B,#161210);padding:5rem 2rem;border-top:1px solid rgba(212,43,43,0.2)}
+.form-inner{max-width:600px;margin:0 auto;text-align:center}
+.form-inner h2{margin-bottom:0.75rem}
+.form-inner p{font-size:1.05rem;color:#BBBBBB;margin-bottom:2rem;line-height:1.7}
+.form-box{background:#1A1714;border:1px solid rgba(212,43,43,0.25);border-radius:10px;padding:2.5rem;text-align:left}
+.form-group{margin-bottom:1.25rem}
+.form-label{display:block;font-size:0.85rem;font-weight:600;color:#CCCCCC;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.5rem}
+.form-input{width:100%;background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.85rem 1rem;color:#FFFFFF;font-size:1rem;font-family:'Barlow',sans-serif;outline:none;transition:border-color 0.2s}
+.form-input:focus{border-color:rgba(212,43,43,0.6)}
+.form-input::placeholder{color:#555}
+.btn-submit{width:100%;background:var(--rojo);color:var(--blanco);font-weight:700;font-size:1.05rem;padding:1rem;border:none;border-radius:6px;cursor:pointer;font-family:'Barlow',sans-serif;letter-spacing:0.03em;transition:background 0.2s,transform 0.15s;margin-top:0.5rem}
+.btn-submit:hover{background:#b01e1e;transform:translateY(-2px)}
+.form-ok{display:none;text-align:center;padding:2rem}
+.form-ok h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:#4A9FD4;margin-bottom:0.5rem}
+.form-ok p{color:#CCCCCC;font-size:1rem}
+.form-note{font-size:0.8rem;color:#666;text-align:center;margin-top:1rem}
 </style>
 </head>
 <body>
 
 <nav>
   <a href="#" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;"><img style="height:44px;width:auto;border-radius:4px;" src="data:image/png;base64,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" alt="MARINDOS" style="height:44px;width:auto;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;color:#ffffff;letter-spacing:0.06em;">MARINDOS <span style="color:#ffffff;font-weight:600;font-size:1rem;">S.A.C.</span></span></a>
-  <a class="nav-cta" href="https://wa.me/51969015581?text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE">📞 Consulta gratis</a>
+  <a class="nav-cta" href="https://web.whatsapp.com/send?phone=51969015581&text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE">📞 Consulta gratis</a>
 </nav>
 
 <section class="hero">
@@ -158,7 +176,7 @@ footer a:hover{color:var(--blanco)}
       Diagnóstico técnico en 24h, sin costo y sin compromiso.
     </p>
     <div>
-      <a class="btn-wa" href="https://wa.me/51969015581?text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE">
+      <a class="btn-wa" href="https://web.whatsapp.com/send?phone=51969015581&text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Hablar con un ingeniero ahora
       </a>
@@ -276,12 +294,82 @@ footer a:hover{color:var(--blanco)}
   </div>
 </section>
 
+
+<!-- FORMULARIO -->
+<section class="form-section">
+  <div class="form-inner">
+    <p class="sec-label">Contáctanos ahora</p>
+    <h2>Solicita tu <em>diagnóstico gratuito</em></h2>
+    <p>Déjanos tus datos y un ingeniero te contacta en menos de 24 horas.</p>
+    <div class="form-box">
+      <div id="formContent">
+        <form id="contactForm">
+          <div class="form-group">
+            <label class="form-label">Nombre completo</label>
+            <input class="form-input" type="text" name="nombre" id="nombre" placeholder="Ej: Juan Pérez" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Empresa</label>
+            <input class="form-input" type="text" name="empresa" placeholder="Nombre de tu empresa">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono / WhatsApp</label>
+            <input class="form-input" type="tel" name="telefono" id="telefono" placeholder="Ej: 999 888 777" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">¿Cuál es tu observación ITSE?</label>
+            <input class="form-input" type="text" name="observacion" placeholder="Ej: Red de rociadores, expediente técnico...">
+          </div>
+          <button type="submit" class="btn-submit">Solicitar diagnóstico gratuito →</button>
+          <p class="form-note">Te contactamos en menos de 24 horas. Sin costo ni compromiso.</p>
+        </form>
+      </div>
+      <div class="form-ok" id="formOk">
+        <h3>✅ ¡Mensaje enviado!</h3>
+        <p>Gracias. Un ingeniero de MARINDOS te contactará en las próximas horas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = this.querySelector('.btn-submit');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  
+  var data = new FormData(this);
+  
+  try {
+    var response = await fetch('https://formspree.io/f/mqejywqz', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    
+    if (response.ok) {
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formOk').style.display = 'block';
+    } else {
+      btn.textContent = 'Solicitar diagnóstico gratuito →';
+      btn.disabled = false;
+      alert('Hubo un error. Por favor escríbenos al WhatsApp.');
+    }
+  } catch(err) {
+    btn.textContent = 'Solicitar diagnóstico gratuito →';
+    btn.disabled = false;
+    alert('Hubo un error. Por favor escríbenos al WhatsApp.');
+  }
+});
+</script>
+
 <section class="cta-final">
   <div class="cta-inner">
     <h2>¿Tienes observaciones ITSE?<br><em>Resuélvelas hoy mismo</em></h2>
     <p>Un ingeniero especializado evalúa tu caso en menos de 24 horas, sin costo y sin compromiso.</p>
     <a class="tel-big" href="tel:+51969015581">+51 969 015 581</a>
-    <a class="btn-wa" href="https://wa.me/51969015581?text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE" style="display:inline-flex;margin:0 auto">
+    <a class="btn-wa" href="https://web.whatsapp.com/send?phone=51969015581&text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE" style="display:inline-flex;margin:0 auto">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Escribir por WhatsApp ahora
     </a>
@@ -295,7 +383,7 @@ footer a:hover{color:var(--blanco)}
   <p><a href="mailto:proyectos@marindos.com">proyectos@marindos.com</a> &nbsp;|&nbsp; <a href="https://marindos.com">marindos.com</a></p>
 </footer>
 
-<a class="wa-float" href="https://wa.me/51969015581?text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE" aria-label="WhatsApp">
+<a class="wa-float" href="https://web.whatsapp.com/send?phone=51969015581&text=Hola,%20necesito%20ayuda%20con%20mis%20observaciones%20ITSE" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
