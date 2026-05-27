@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARINDOS – Le llamamos hoy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',sans-serif;background:#0D0B09;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.2rem}
+.card{background:#161412;border:1px solid rgba(212,43,43,0.25);border-radius:12px;padding:2.5rem 2rem;max-width:480px;width:100%}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;color:#fff;letter-spacing:0.06em;margin-bottom:2rem;text-align:center}
+.logo span{color:#FF2020}
+h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;text-transform:uppercase;line-height:1.1;margin-bottom:0.75rem;text-align:center}
+h1 em{color:#FF2020;font-style:normal}
+.sub{font-size:1rem;color:#BBBBBB;text-align:center;line-height:1.65;margin-bottom:2rem}
+.sub strong{color:#fff}
+.form-group{margin-bottom:1.1rem}
+.form-label{display:block;font-size:0.8rem;font-weight:600;color:#AAAAAA;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem}
+.form-input{width:100%;background:#0F0D0B;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.85rem 1rem;color:#fff;font-size:1rem;font-family:'Barlow',sans-serif;outline:none;transition:border-color 0.2s}
+.form-input:focus{border-color:rgba(212,43,43,0.5)}
+.form-input::placeholder{color:#444}
+.btn{width:100%;background:#D42B2B;color:#fff;font-weight:700;font-size:1.05rem;padding:1rem;border:none;border-radius:6px;cursor:pointer;font-family:'Barlow',sans-serif;margin-top:0.5rem;transition:background 0.2s,transform 0.15s}
+.btn:hover{background:#b01e1e;transform:translateY(-2px)}
+.btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.note{font-size:0.8rem;color:#555;text-align:center;margin-top:1rem;line-height:1.6}
+.ok{display:none;text-align:center;padding:1rem 0}
+.ok-icon{font-size:3rem;margin-bottom:1rem}
+.ok h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:#4A9FD4;margin-bottom:0.5rem}
+.ok p{color:#BBBBBB;font-size:1rem;line-height:1.7}
+.ok strong{color:#fff}
+.divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:2rem 0}
+.ciro{display:flex;align-items:center;gap:1rem;margin-top:1.5rem}
+.ciro-info{font-size:0.85rem;color:#888}
+.ciro-info strong{color:#CCCCCC;display:block;font-size:0.95rem}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">MARIN<span>DOS</span> S.A.C.</div>
+
+  <div id="formWrap">
+    <h1>Le llamamos<br><em>hoy mismo</em></h1>
+    <p class="sub">Déjenos su número y un ingeniero de MARINDOS le llama en menos de <strong>2 horas</strong> para orientarle sobre sus observaciones ITSE — sin costo y sin compromiso.</p>
+
+    <form id="callForm">
+      <div class="form-group">
+        <label class="form-label">Nombre</label>
+        <input class="form-input" type="text" name="nombre" placeholder="Su nombre" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Teléfono / WhatsApp</label>
+        <input class="form-input" type="tel" name="telefono" placeholder="999 888 777" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Empresa <span style="color:#555;font-weight:400">(opcional)</span></label>
+        <input class="form-input" type="text" name="empresa" placeholder="Nombre de su empresa">
+      </div>
+      <input type="hidden" name="_subject" value="🔔 NUEVO LEAD - Solicitud de llamada ITSE">
+      <button type="submit" class="btn" id="submitBtn">📞 Quiero que me llamen hoy →</button>
+      <p class="note">Solo lo usamos para llamarle. No spam, no listas, no WhatsApp sin permiso.</p>
+    </form>
+
+    <hr class="divider">
+    <div class="ciro">
+      <div class="ciro-info">
+        <strong>Ciro Cruz</strong>
+        Gerente General · MARINDOS S.A.C.<br>
+        +51 969 015 581
+      </div>
+    </div>
+  </div>
+
+  <div class="ok" id="okWrap">
+    <div class="ok-icon">✅</div>
+    <h2>¡Perfecto!</h2>
+    <p>Recibimos su solicitud.<br><strong>Le llamamos en menos de 2 horas.</strong><br><br>Si necesita contactarnos antes:<br><strong>+51 969 015 581</strong></p>
+  </div>
+</div>
+
+<script>
+document.getElementById('callForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  try {
+    var res = await fetch('https://formspree.io/f/mqejywqz', {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if(res.ok){
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('okWrap').style.display = 'block';
+    } else {
+      btn.textContent = '📞 Quiero que me llamen hoy →';
+      btn.disabled = false;
+      alert('Error al enviar. Llámenos directamente: +51 969 015 581');
+    }
+  } catch(e){
+    btn.textContent = '📞 Quiero que me llamen hoy →';
+    btn.disabled = false;
+    alert('Error al enviar. Llámenos directamente: +51 969 015 581');
+  }
+});
+</script>
+</body>
+</html>
